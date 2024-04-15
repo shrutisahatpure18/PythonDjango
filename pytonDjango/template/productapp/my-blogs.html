@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block start %}
+    <!-- bannerSection -->
+    <div class="mainSection">
+		<div class="container">
+        	<div class="row">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+              <div class="middle">
+                  <div class="breadcrumb"><a href="#">Home Screen</a></div>                    
+                  <h1>Blog</h1>
+                  {% if messages %}
+                  {{messages.tags}}
+                  <div class="alert alert-info" role="alert">
+                      {% for message in messages %}
+                      {{message}}
+                      {% endfor %}
+                    </div>
+                    {% endif %}
+                  <div class="divmaildetails">
+                    <div class="text-right"><a href="addblogs" class="btn btn-primary">Add Blog</a></div><br/>
+                    <div class="mail-list">
+                        {% for blog in blogs %}
+                        <div class="divmail">
+                            <div class="mail-usr-img">
+                                <!-- Add container with fixed dimensions -->
+                                <div class="img-container" style="width: 200px; height: 200px; overflow: hidden;">
+                                    <img src="{{ blog.image }}" alt="" class="img-fluid" />
+                                </div>
+                            </div>
+                            <div class="mail-usr-name">
+                                <h4><a href="blog-details/{{blog.id}}">{{ blog.title }}</a></h4>
+                                <span class="mail-date">{{ blog.publication_date }}</span>
+                            </div>
+                            <div class="mail-desc"><a href="blog-details/{{blog.id}}">{{ blog.content }}</a></div>
+                            <!-- Delete button -->
+                            <div class="mail-usr-buttons text-right">
+                              <a href="delete-blog/{{blog.id}}" class="btn btn-sm btn-danger"><i class="fa fa-trash fa-lg"></i> </a>
+                              <a href="/edit-blog/{{blog.id}}" class="btn btn-sm btn-primary"><i class="fa fa-edit fa-lg"></i> </a>
+                          </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                
+                
+              </div>
+          </div>
+                      
+                </div>
+            </div>
+        </div>	
+	</div>    
+	
+  {% endblock %}

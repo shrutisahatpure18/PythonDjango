@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block start %}
+{% load static %}
+    <!-- bannerSection -->
+    <div class="mainSection">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                    <div class="middle">
+                        <div class="breadcrumb"><a href="#">Home Screen</a></div>
+                        <div>
+
+                        
+                        <div class="feedback_image">
+                            <img src="/{{ blog.image }}" alt="" border="" />
+                        </div>
+                        <div class="feedback_details">
+                            <h3>{{blog.title}}
+                                <span class="f_date">{{blog.publication_date}}</span>
+                            </h3>
+                           <p>{{blog.content}}</p>
+                        </div>
+                    </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}

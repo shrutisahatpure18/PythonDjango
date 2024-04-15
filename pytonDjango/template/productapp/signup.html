@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block start %}
+    <!-- bannerSection -->
+    <div class="mainSection">
+		<div class="container">
+        	<div class="row">
+				<div class="col-md-8 col-lg-5 col-sm-8 col-xs-12 col-lg-offset-3 col-md-offset-2 col-sm-offset-2">
+                	<div class="middle">
+						<h1>Register</h1>
+                        <div class="login">
+                            <div class="row">
+                                {% if messages %}
+                                {{messages.tags}}
+                                <div class="alert alert-info" role="alert">
+                                    {% for message in messages %}
+                                    {{message}}
+                                    {% endfor %}
+                                  </div>
+                                  {% endif %}
+                                <form class="form-horizontal" id="userSignup" action="{% url 'render_signup_view' %}" method="post" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    {{ userSignup.as_p }}
+                                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">                            
+                                            <div class="form-group">
+                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                                    <input type="text" class="form-control" id="input2" name="first_name" placeholder="First Name">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                                    <input type="text" class="form-control" id="input3" name="last_name" placeholder="Last Name">
+                                                </div>        
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                                    <input type="text" class="form-control" id="input3" name="username" placeholder="Username">
+                                                </div>        
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                                    <input type="password" class="form-control" id="input4" name="password" placeholder=" Password">
+                                                </div>        
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                                	<button class="btn btn-primary">Register</button>
+                                                    <a href="/" title="login">Login</a>
+                                                </div>
+                                            </div>                                                                                        
+                                    </div>                  
+                                </form>                                
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>	
+	</div>    
+	
+    {% endblock %}
